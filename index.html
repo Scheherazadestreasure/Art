@@ -293,38 +293,7 @@ footer .wrap{max-width:760px;line-height:1.6}
 .cf-inner .pic img{box-shadow:none !important;border-radius:0 !important}
 .pic::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;background:linear-gradient(112deg,transparent 38%,rgba(255,238,190,.0) 42%,rgba(255,238,190,.32) 50%,rgba(255,238,190,0) 58%,transparent 62%);background-size:300% 100%;background-position:120% 0;mix-blend-mode:screen;opacity:0}
 .in .pic::after,.tale .pic::after{animation:sheen 9s ease-in-out 1.2s infinite}
-.reading .pic::after{animation:none;opacity:0}
 @keyframes sheen{0%{background-position:120% 0;opacity:0}6%{opacity:1}22%{background-position:-20% 0;opacity:1}26%,100%{background-position:-20% 0;opacity:0}}
-.calli-btn{position:absolute;left:10px;bottom:10px;z-index:4;font:500 13px/1 var(--f-body);letter-spacing:.2px;color:var(--gold);background:rgba(14,15,30,.8);border:1px solid rgba(227,198,130,.55);border-radius:999px;padding:8px 13px;cursor:pointer;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);transition:background .25s,color .25s,box-shadow .25s;box-shadow:0 0 0 0 rgba(227,198,130,.5)}
-html[lang="ar"] .calli-btn{font-family:var(--f-ar);font-size:15px}
-.calli-btn:hover,.calli-btn:focus-visible{background:var(--gold);color:var(--ink);outline:none}
-.in .calli-btn{animation:callPulse 2.4s ease-out 2.2s 2}
-@keyframes callPulse{0%{box-shadow:0 0 0 0 rgba(227,198,130,.55)}100%{box-shadow:0 0 0 14px rgba(227,198,130,0)}}
-.calli-layer{position:absolute;inset:0;z-index:2;opacity:0;pointer-events:none;transition:opacity .45s ease,background .45s ease;background:rgba(8,8,22,.42)}
-.reading .calli-layer{opacity:1;pointer-events:auto}
-.reading .calli-layer.has-active{background:transparent}
-.calli-spot{position:absolute;border:0;padding:0;margin:0;background:transparent;border-radius:38%;cursor:pointer;transition:box-shadow .5s ease;-webkit-tap-highlight-color:transparent}
-.calli-spot::after{content:attr(data-n);position:absolute;left:50%;top:50%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:var(--gold);color:var(--ink);font:600 14px/28px var(--f-body);text-align:center;box-shadow:0 0 0 3px rgba(14,15,30,.55),0 0 18px 4px rgba(227,198,130,.55);animation:spotGlow 2.2s ease-in-out infinite;transition:opacity .3s,transform .3s}
-.calli-spot:hover::after,.calli-spot:focus-visible::after{transform:scale(1.15)}
-.calli-spot:focus-visible{outline:none}
-.calli-spot.active{box-shadow:0 0 0 200vmax rgba(8,8,22,.66),inset 0 0 18px 2px rgba(227,198,130,.22),0 0 26px 6px rgba(227,198,130,.25)}
-.calli-spot.active::after{opacity:0;transform:scale(.4)}
-@keyframes spotGlow{0%,100%{box-shadow:0 0 0 3px rgba(14,15,30,.55),0 0 12px 2px rgba(227,198,130,.45)}50%{box-shadow:0 0 0 3px rgba(14,15,30,.55),0 0 22px 7px rgba(227,198,130,.75)}}
-.calli-panel{display:none;margin:18px auto 0;max-width:640px;padding:18px 20px;border:1px solid rgba(227,198,130,.4);border-radius:12px;background:rgba(14,15,30,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);gap:18px;align-items:center}
-.reading-on + .calli-panel,.calli-panel.open{display:flex;animation:panelIn .45s ease}
-@keyframes panelIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.calli-glyph{flex:none;min-width:72px;text-align:center;font-family:var(--f-ar);font-size:52px;line-height:1.1;color:var(--gold);text-shadow:0 0 18px rgba(227,198,130,.45);direction:rtl}
-.calli-glyph.long{font-size:30px;min-width:96px}
-.calli-body{flex:1;min-width:0}
-.calli-name{font-family:var(--f-display);font-size:22px;color:var(--paper);margin:0 0 4px}
-.calli-panel p{text-align:start !important;hyphens:manual !important}
-.calli-text{margin:0;font-size:15px;line-height:1.6;color:var(--muted)}
-.calli-hint{margin:0;font-size:15px;color:var(--muted);font-style:italic}
-.calli-nav{flex:none;display:flex;gap:6px}
-.calli-nav button{width:36px;height:36px;border-radius:50%;border:1px solid rgba(227,198,130,.45);background:transparent;color:var(--gold);font-size:18px;cursor:pointer}
-.calli-nav button:hover{background:rgba(227,198,130,.15)}
-html[dir="rtl"] .calli-nav{transform:scaleX(-1)}
-@media (max-width:560px){.calli-panel{flex-wrap:wrap;gap:10px 14px;padding:14px}.calli-glyph{font-size:40px;min-width:52px}.calli-glyph.long{font-size:24px}.calli-nav{order:3;width:100%;justify-content:flex-end}.calli-spot::after{width:24px;height:24px;margin:-12px 0 0 -12px;font-size:12px;line-height:24px}.calli-btn{font-size:12px;padding:7px 11px}}
 
 /* === reveal on scroll === */
 .js .rv{opacity:0;transform:translateY(34px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1)}
@@ -1098,47 +1067,6 @@ setLang(start);
   window.addEventListener("popstate",()=>{const h=location.hash.slice(1); show(tales.includes(h)?h:null, tales.includes(h)?null:(h||null));});
   const h=location.hash.slice(1); if(tales.includes(h)) show(h);
 })();
-
-/* === «Прочитай каллиграмму» === */
-const CALLI={"altJoined": [{"x": 67, "y": 15, "w": 19, "h": 70, "g": "ح", "ru": ["«Ха»", "Первая буква слова حُبّ, «любовь». Её звук рождается глубоко в горле, у самого сердца, — это вздох."], "en": ["Ha", "The first letter of حُبّ, “love”. Its sound is born deep in the throat, close to the heart: a sigh."], "ar": ["الحاء", "الحرف الأول من كلمة «حب». يولد صوتها في عمق الحلق قرب القلب، فهي تنهيدة."]}, {"x": 9, "y": 43, "w": 28, "h": 36, "g": "ب", "ru": ["«Ба»", "Вторая буква. Её произносят губами — это поцелуй. Любовь начинается в сердце и заканчивается на губах."], "en": ["Ba", "The second letter. It is spoken with the lips: a kiss. Love begins in the heart and ends on the lips."], "ar": ["الباء", "الحرف الثاني، ينطق بالشفتين، فهو قبلة. الحب يبدأ في القلب وينتهي على الشفاه."]}, {"x": 18, "y": 31, "w": 11, "h": 13, "g": "ـّـ", "ru": ["Шадда", "Знак удвоения над «ба», похожий на сложенные крылья: память о небе — и любовь вдвое сильнее."], "en": ["Shadda", "The doubling sign above ba, shaped like folded wings: a memory of the sky, and love made twice as strong."], "ar": ["الشدة", "علامة التضعيف فوق الباء، تشبه جناحين مطويين: أثر من السماء، وحب مضاعف."]}, {"x": 44, "y": 43, "w": 12, "h": 18, "g": "♥", "ru": ["Сердце", "Алое сердце на золотой нити, разделённое на две половинки. Целым оно становится, только когда холсты висят рядом."], "en": ["The heart", "A scarlet heart on the golden thread, split into two halves. It becomes whole only when the canvases hang side by side."], "ar": ["القلب", "قلب قرمزي على الخيط الذهبي، مشطور نصفين، ولا يكتمل إلا إذا علقت اللوحتان متجاورتين."]}], "altFusul": [{"x": 76, "y": 36, "w": 14, "h": 44, "g": "ف", "ru": ["«Фа» — весна", "Первая буква слова فصول, «времена года». Рядом с ней распускаются молодые листья: здесь живёт весна."], "en": ["Fa: spring", "The first letter of فصول, “seasons”. Young leaves unfold beside it: this is where spring lives."], "ar": ["الفاء: الربيع", "أول حروف كلمة «فصول». بجانبها تتفتح أوراق فتية، فهنا يسكن الربيع."]}, {"x": 48, "y": 44, "w": 28, "h": 30, "g": "ص", "ru": ["«Сад» — лето", "Вторая буква. Под ней сияет золотое солнце — это лето."], "en": ["Sad: summer", "The second letter. A golden sun shines beneath it: summer."], "ar": ["الصاد: الصيف", "الحرف الثاني، تشرق تحته شمس ذهبية، فهو الصيف."]}, {"x": 32, "y": 48, "w": 17, "h": 30, "g": "و", "ru": ["«Вав» — зима", "Третья буква, сердце слова. Над серединой слова кружит снежинка — это зима."], "en": ["Waw: winter", "The third letter, the heart of the word. A snowflake whirls above the middle of the word: winter."], "ar": ["الواو: الشتاء", "الحرف الثالث، قلب الكلمة. فوق وسطها تدور ندفة ثلج، فهو الشتاء."]}, {"x": 11, "y": 14, "w": 20, "h": 66, "g": "ل", "ru": ["«Лям» — осень", "Последняя и самая высокая буква. У её подножия лежит кленовый лист — это осень."], "en": ["Lam: autumn", "The last and tallest letter. A maple leaf lies at its foot: autumn."], "ar": ["اللام: الخريف", "آخر الحروف وأطولها، وعند قدمها ورقة قيقب، فهو الخريف."]}], "altArthur": [{"x": 41, "y": 1, "w": 20, "h": 27, "g": "أ", "ru": ["«Алиф» — клинок", "Первая буква имени أرتور, «Артур». Прямой, как луч, алиф стал клинком меча."], "en": ["Alif: the blade", "The first letter of أرتور, “Arthur”. Straight as a ray, the alif became the blade."], "ar": ["الألف: النصل", "أول حروف اسم «أرتور». مستقيمة كالشعاع، فصارت نصل السيف."]}, {"x": 25, "y": 27, "w": 47, "h": 25, "g": "ر", "ru": ["«Ра» — гарда", "Изогнутая «ра» раскинулась полумесяцем и стала гардой меча."], "en": ["Ra: the guard", "The curved ra spreads out like a crescent moon and becomes the guard of the sword."], "ar": ["الراء: الواقي", "انبسطت الراء المنحنية كالهلال، فصارت واقي السيف."]}, {"x": 25, "y": 66, "w": 38, "h": 12, "g": "ت", "ru": ["«Та» — перекрестье", "Буква с двумя точками стала перекрестьем рукояти, а её точки сияют рядом, как две звезды."], "en": ["Ta: the cross-guard", "The letter with two dots became the cross of the hilt, its dots shining beside it like two stars."], "ar": ["التاء: المقبض", "صارت التاء بنقطتيها مقبض السيف، وتلمع نقطتاها بجانبه كنجمتين."]}, {"x": 34, "y": 78, "w": 25, "h": 11, "g": "و", "ru": ["«Вав» — рукоять", "Петля «вав» — это рукоять, которую сжимает ладонь короля."], "en": ["Waw: the grip", "The loop of waw is the grip held in the king’s hand."], "ar": ["الواو: القبضة", "حلقة الواو هي القبضة التي تمسكها يد الملك."]}, {"x": 40, "y": 88, "w": 19, "h": 11, "g": "ر", "ru": ["«Ра» — навершие", "Последняя «ра» замыкает имя маленьким полумесяцем — навершием меча."], "en": ["Ra: the pommel", "The last ra closes the name with a small crescent: the pommel of the sword."], "ar": ["الراء: رأس المقبض", "تختم الراء الأخيرة الاسم بهلال صغير، هو رأس مقبض السيف."]}], "altFam": [{"x": 73, "y": 13, "w": 26, "h": 27, "g": "العائلة", "ru": ["«Семья»", "Надпись начинается в правом верхнем углу и летит вниз, как стрела."], "en": ["“Family”", "The inscription begins in the top right corner and flies down like an arrow."], "ar": ["«العائلة»", "تبدأ الكتابة في الزاوية العليا اليمنى وتنطلق نحو الأسفل كالسهم."]}, {"x": 63, "y": 27, "w": 15, "h": 21, "g": "تعني", "ru": ["«означает»", "Каждая буква держит соседнюю за руку, как держатся друг за друга родные."], "en": ["“means”", "Each letter holds its neighbour by the hand, the way kin hold on to each other."], "ar": ["«تعني»", "كل حرف يمسك بيد جاره، كما يتماسك الأهل."]}, {"x": 39, "y": 35, "w": 27, "h": 27, "g": "أن لا أحداً", "ru": ["«что никто»", "Середина стрелы — её древко."], "en": ["“that no one”", "The middle of the inscription: the shaft of the arrow."], "ar": ["«أن لا أحداً»", "وسط الكتابة: قصبة السهم."]}, {"x": 2, "y": 57, "w": 38, "h": 38, "g": "يترك في الخلف", "ru": ["«не останется позади»", "Нижний конец стрелы указывает дорогу домой."], "en": ["“is left behind”", "The lower end of the arrow points the way home."], "ar": ["«يترك في الخلف»", "يشير طرف السهم السفلي إلى طريق البيت."]}, {"x": 0, "y": 16, "w": 16, "h": 31, "g": "أو ينسى", "ru": ["«и не будет забыт»", "Последние слова стоят отдельно, у края холста, словно печать на страже."], "en": ["“or forgotten”", "The last words stand apart at the edge of the canvas, like a seal on guard."], "ar": ["«أو ينسى»", "تقف الكلمات الأخيرة وحدها عند حافة اللوحة، كالختم الحارس."]}], "altSharq": [{"x": 57, "y": 25, "w": 27, "h": 30, "g": "ش", "ru": ["«Шин»", "Первая буква слова شرق, «восток». Три точки над ней — как три звезды над пустыней."], "en": ["Shin", "The first letter of شرق, “east”. Its three dots are like three stars above the desert."], "ar": ["الشين", "أول حروف كلمة «شرق»، ونقاطها الثلاث كثلاث نجوم فوق الصحراء."]}, {"x": 34, "y": 40, "w": 24, "h": 22, "g": "ر", "ru": ["«Ра»", "Средняя буква спускается вниз, как тропа между барханами."], "en": ["Ra", "The middle letter dips down like a path between the dunes."], "ar": ["الراء", "ينحدر الحرف الأوسط كدرب بين الكثبان."]}, {"x": 15, "y": 34, "w": 22, "h": 28, "g": "ق", "ru": ["«Каф»", "Последняя буква с двумя точками замыкает слово «восток»."], "en": ["Qaf", "The last letter, with its two dots, closes the word “east”."], "ar": ["القاف", "يختم القاف بنقطتيه كلمة «شرق»."]}, {"x": 36, "y": 33, "w": 14, "h": 11, "g": "شروق", "ru": ["Осколки слова «восход»", "Вокруг рассыпаны маленькие буквы — осколки слова شروق, «восход солнца». У востока и восхода один корень."], "en": ["Fragments of “sunrise”", "Tiny letters are scattered around: fragments of شروق, “sunrise”. East and sunrise share one root."], "ar": ["شظايا «شروق»", "تتناثر حولها حروف صغيرة هي شظايا كلمة «شروق»، فالشرق والشروق من جذر واحد."]}, {"x": 2, "y": 6, "w": 23, "h": 18, "g": "☾", "ru": ["Полумесяц", "Тот самый полумесяц, который вывел на небе слово для верблюжонка."], "en": ["The crescent moon", "The very crescent that wrote the word across the sky for the little camel."], "ar": ["الهلال", "هو الهلال نفسه الذي كتب الكلمة في السماء للجمل الصغير."]}, {"x": 3, "y": 73, "w": 69, "h": 27, "g": "سهيل", "ru": ["Сухайль", "Верблюжонок, названный в честь звезды, идёт навстречу утру."], "en": ["Suhail", "The little camel named after a star, walking towards the morning."], "ar": ["سهيل", "الجمل الصغير المسمى باسم نجم، يمضي نحو الصباح."]}]};
-const AR_NUM="٠١٢٣٤٥٦٧٨٩";
-let curLang="ru";
-function num(n){return curLang==="ar"?String(n).replace(/\d/g,d=>AR_NUM[d]):String(n);}
-const readers=[];
-function buildReaders(){
-  document.querySelectorAll(".cf-inner .pic img[data-alt]").forEach(img=>{
-    const key=img.dataset.alt, data=CALLI[key]; if(!data) return;
-    const pic=img.parentNode, frame=pic.closest(".cframe");
-    const layer=document.createElement("div"); layer.className="calli-layer";
-    const spots=data.map((s,i)=>{const b=document.createElement("button"); b.type="button"; b.className="calli-spot";
-      b.style.cssText="left:"+s.x+"%;top:"+s.y+"%;width:"+s.w+"%;height:"+s.h+"%";
-      b.addEventListener("click",e=>{e.stopPropagation(); r.select(r.active===i?-1:i);}); layer.appendChild(b); return b;});
-    const btn=document.createElement("button"); btn.type="button"; btn.className="calli-btn";
-    const panel=document.createElement("div"); panel.className="calli-panel"; panel.setAttribute("aria-live","polite");
-    panel.innerHTML='<div class="calli-glyph" lang="ar"></div><div class="calli-body"><p class="calli-name"></p><p class="calli-text"></p><p class="calli-hint"></p></div><div class="calli-nav"><button type="button" class="pv">‹</button><button type="button" class="nx">›</button></div>';
-    pic.appendChild(layer); pic.appendChild(btn); frame.insertAdjacentElement("afterend",panel);
-    const r={key,data,pic,layer,spots,btn,panel,on:false,active:-1,
-      toggle(v){this.on=v===undefined?!this.on:v; pic.classList.toggle("reading",this.on); panel.classList.toggle("open",this.on);
-        if(!this.on) this.select(-1); this.render();},
-      select(i){this.active=i; spots.forEach((b,j)=>b.classList.toggle("active",j===i)); layer.classList.toggle("has-active",i>=0); this.render();},
-      step(d){const n=data.length; this.select(this.active<0?(d>0?0:n-1):(this.active+d+n)%n);},
-      render(){const L=T[curLang]; btn.textContent=this.on?L.calliOff:L.calliBtn; btn.setAttribute("aria-expanded",String(this.on));
-        spots.forEach((b,j)=>{b.dataset.n=num(j+1); const it=data[j][curLang]; b.setAttribute("aria-label",num(j+1)+". "+it[0]);});
-        const g=panel.querySelector(".calli-glyph"), nm=panel.querySelector(".calli-name"), tx=panel.querySelector(".calli-text"), h=panel.querySelector(".calli-hint");
-        panel.querySelector(".pv").setAttribute("aria-label",L.calliPrev); panel.querySelector(".nx").setAttribute("aria-label",L.calliNext);
-        if(this.active<0){g.textContent="✦"; g.classList.remove("long"); nm.textContent=""; tx.textContent=""; h.textContent=L.calliHint; nm.hidden=tx.hidden=true; h.hidden=false;}
-        else{const s=data[this.active], it=s[curLang]; g.textContent=s.g; g.classList.toggle("long",s.g.length>3); nm.textContent=num(this.active+1)+" · "+it[0]; tx.textContent=it[1]; nm.hidden=tx.hidden=false; h.hidden=true;}}};
-    btn.addEventListener("click",e=>{e.preventDefault(); e.stopPropagation(); r.toggle();});
-    panel.querySelector(".pv").addEventListener("click",()=>r.step(-1));
-    panel.querySelector(".nx").addEventListener("click",()=>r.step(1));
-    layer.addEventListener("click",()=>r.select(-1));
-    readers.push(r); r.render();
-  });
-}
-window.calliRender=function(l){curLang=l; readers.forEach(r=>r.render());};
-buildReaders(); calliRender(document.documentElement.lang||"ru");
-document.addEventListener("keydown",e=>{const r=readers.find(x=>x.on&&x.pic.offsetParent); if(!r) return;
-  if(e.key==="Escape") r.toggle(false); else if(e.key==="ArrowRight") r.step(document.documentElement.dir==="rtl"?-1:1); else if(e.key==="ArrowLeft") r.step(document.documentElement.dir==="rtl"?1:-1);});
 
 /* === reveal on scroll === */
 (function(){
