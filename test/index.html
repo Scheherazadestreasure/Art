@@ -362,6 +362,15 @@ html[lang="ar"] .film-text h3{font-family:var(--f-ar);font-weight:700}
 .film-meta span::before{content:"";width:5px;height:5px;transform:rotate(45deg);background:var(--gold-soft)}
 .film-credit{font-size:13px;color:var(--muted);margin-top:14px;font-style:italic}
 .btn.ghost{background:transparent;color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold);margin-inline-start:10px}
+.film-page .film{grid-template-columns:1fr;max-width:620px;text-align:center;margin:28px auto 40px}
+.film-page .film-arch{max-width:380px}
+.film-page .film-meta{justify-content:center}
+.film-page .film-text .btn{margin-top:22px}
+.film-page .film-text .film-ar{font-size:48px}
+.film-head{text-align:center;margin-top:18px}
+.film-head h2{margin-bottom:0}
+.film-link{text-align:center;margin-top:30px}
+.film-link .btn.ghost{margin:0}
 @media (max-width:820px){.film{grid-template-columns:1fr;text-align:center}.film-meta{justify-content:center}.film-arch{max-width:300px}.btn.ghost{margin:12px 0 0}}
 @media (prefers-reduced-motion:no-preference){.film-arch::after{animation:filmTw 3.2s ease-in-out infinite}@keyframes filmTw{50%{opacity:.45;transform:translateX(-50%) scale(.85)}}}
 </style>
@@ -489,7 +498,7 @@ html[lang="ar"] .film-text h3{font-family:var(--f-ar);font-weight:700}
             <dt data-i="mSize">Размер</dt><dd data-i="nSizeV">2 холста, 30 × 30 см каждый</dd>
             <dt data-i="mYear">Год</dt><dd>2026</dd>
           </dl>
-          <a class="btn" href="#niti" data-i="readTale">Читать сказку</a><a class="btn ghost" href="#niti" data-film data-i="watchFilm">Смотреть мультфильм</a>
+          <a class="btn" href="#niti" data-i="readTale">Читать сказку</a><a class="btn ghost" href="#film" data-i="watchFilm">Смотреть мультфильм</a>
         </div>
       </div>
       <div class="divider" aria-hidden="true"><svg viewBox="0 0 120 40"><g fill="none" stroke="#D6B266" stroke-width="1"><path d="M60 6 L66 14 L76 14 L70 20 L76 26 L66 26 L60 34 L54 26 L44 26 L50 20 L44 14 L54 14 Z"/><path d="M60 11 L63.5 17 L69 20 L63.5 23 L60 29 L56.5 23 L51 20 L56.5 17 Z" fill="#D6B266" fill-opacity=".85" stroke="none"/><circle cx="34" cy="20" r="2.2" fill="#D6B266" stroke="none"/><circle cx="86" cy="20" r="2.2" fill="#D6B266" stroke="none"/></g></svg></div>
@@ -743,22 +752,6 @@ html[lang="ar"] .film-text h3{font-family:var(--f-ar);font-weight:700}
 <g fill="none" stroke="#E3C682" stroke-width="1.1"><path d="M32,46 v6"/><path d="M32,134 v-6"/></g>
 <g stroke="#E3C682" stroke-width=".9" stroke-dasharray="1 4" stroke-linecap="round"><line x1="32" y1="12" x2="32" y2="40"/><line x1="32" y1="140" x2="32" y2="168"/></g>
 <path class="tw d2" d="M32.00,4.00 L32.71,7.29 L36.00,8.00 L32.71,8.71 L32.00,12.00 L31.29,8.71 L28.00,8.00 L31.29,7.29 Z" fill="#E3C682"/><path class="tw" d="M32.00,168.00 L32.71,171.29 L36.00,172.00 L32.71,172.71 L32.00,176.00 L31.29,172.71 L28.00,172.00 L31.29,171.29 Z" fill="#E3C682"/></svg><div class="cf-inner"><span class="pic"><img src="../img/niti-lyubvi.jpg" width="1400" height="690" loading="lazy" decoding="async" alt="" data-alt="altJoined"></span></div></div>
-      <div class="film" id="niti-film">
-        <div class="film-arch">
-          <div class="film-win">
-            <video id="filmVideo" playsinline preload="none" poster="../img/film-ru.jpg" src="../video/niti-lyubvi-ru.mp4" data-label="filmLabel" aria-label="Мультфильм «Нити любви»"></video>
-            <button type="button" class="film-play" id="filmPlay"><span class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5v17l14-8.5z"/></svg></span><span data-i="filmPlay">Смотреть</span></button>
-          </div>
-        </div>
-        <div class="film-text">
-          <p class="eyebrow" data-i="filmEyebrow">Мультфильм по сказке</p>
-          <span class="film-ar" lang="ar">حُبّ</span>
-          <h3 data-i="filmTitle">Нити любви</h3>
-          <p data-i="filmText">Сказка о двух ангелах, которые стали буквами одного слова, — в живописных кадрах, со светом, золотыми нитями и музыкой.</p>
-          <div class="film-meta"><span data-i="filmLen">2 мин 14 с</span><span data-i="filmSubs">Субтитры на языке сайта</span></div>
-          <p class="film-credit" data-i="filmCredit">Музыка: Paul Yudin, «Love Valentine Romantic» (Pixabay)</p>
-        </div>
-      </div>
       <div class="narrow">
         
         <p class="eyebrow" style="text-align:center" data-i="taleEyebrow">Сказка к картине</p>
@@ -767,10 +760,34 @@ html[lang="ar"] .film-text h3{font-family:var(--f-ar);font-weight:700}
         <div class="tale-body" id="tale"></div>
         <p class="formula"><span class="ar" lang="ar">وأدرك شهرزاد الصباح فسكتت عن الكلام المباح</span><span data-i="formula">Но тут Шехерезаду застигло утро, и она прекратила дозволенные речи.</span></p>
         <p class="next" data-i="next">Продолжение этой сказки пишется зимой 2026–2027 года: половинки диптиха отправляются в путь по городу. Встретятся ли они — узнаем к 14 февраля.</p>
+        <p class="film-link"><a class="btn ghost" href="#film" data-i="watchFilm">Смотреть мультфильм</a></p>
       </div>
     </div>
     <div class="wrap back-wrap"><a class="back" href="#works" data-i="back">← Назад к сокровищам</a></div>
   </section>
+
+  <section id="film" class="tale film-page" hidden>
+    <div class="wrap">
+      <a class="back" href="#works" data-i="back">← Назад к сокровищам</a>
+      <div class="film-head"><p class="eyebrow" data-i="filmEyebrow">Мультфильм по сказке</p><h2 data-i="filmTitle">Нити любви</h2></div>
+      <div class="film" id="niti-film">
+        <div class="film-arch">
+          <div class="film-win">
+            <video id="filmVideo" playsinline preload="none" poster="../img/film-ru.jpg" src="../video/niti-lyubvi-ru.mp4" data-label="filmLabel" aria-label="Мультфильм «Нити любви»"></video>
+            <button type="button" class="film-play" id="filmPlay"><span class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5v17l14-8.5z"/></svg></span><span data-i="filmPlay">Смотреть</span></button>
+          </div>
+        </div>
+        <div class="film-text">
+          <p data-i="filmText">Сказка о двух ангелах, которые стали буквами одного слова, — в живописных кадрах, со светом, золотыми нитями и музыкой.</p>
+          <div class="film-meta"><span data-i="filmLen">2 мин 14 с</span><span data-i="filmSubs">Субтитры на языке сайта</span></div>
+          <p class="film-credit" data-i="filmCredit">Музыка: Paul Yudin, «Love Valentine Romantic» (Pixabay)</p>
+          <a class="btn" href="#niti" data-i="readTale">Читать сказку</a>
+        </div>
+      </div>
+    </div>
+    <div class="wrap back-wrap"><a class="back" href="#works" data-i="back">← Назад к сокровищам</a></div>
+  </section>
+
 
   <section id="fusul" class="tale" hidden>
     <div class="wrap">
@@ -1112,7 +1129,7 @@ setLang(start);
 })();
 
 (function(){
-  const tales=["niti","fusul","arthur","semya","sharq"];
+  const tales=["niti","film","fusul","arthur","semya","sharq"];
   const mainParts=[...document.querySelectorAll("main > .scene, main > section:not(.tale)")];
   function show(id,scrollTarget){
     tales.forEach(x=>{const el=document.getElementById(x); if(el) el.hidden=(x!==id);});
@@ -1184,8 +1201,7 @@ setLang(start);
   window.filmLang=function(l){const L=({ru:"ru",en:"en",ar:"ar"})[l]||"ru";const src="../video/niti-lyubvi-"+L+".mp4";if(v.getAttribute("src")===src)return;const was=!v.paused;v.pause();v.setAttribute("src",src);v.setAttribute("poster","../img/film-"+L+".jpg");v.load();if(was){v.play().catch(()=>{})}else{v.controls=false;b.hidden=false}};
   b.addEventListener("click",()=>{b.hidden=true;v.controls=true;v.play().catch(()=>{b.hidden=false;v.controls=false})});
   v.addEventListener("ended",()=>{v.controls=false;b.hidden=false;try{v.currentTime=0}catch(e){}});
-  document.addEventListener("click",e=>{if(e.target.closest("a[data-film]"))setTimeout(()=>{const f=document.getElementById("niti-film");if(f)f.scrollIntoView({behavior:"smooth",block:"center"})},60)});
-  const n=document.getElementById("niti");if(n&&"MutationObserver" in window)new MutationObserver(()=>{if(n.hidden&&!v.paused)v.pause()}).observe(n,{attributes:true,attributeFilter:["hidden"]});
+  const n=document.getElementById("film");if(n&&"MutationObserver" in window)new MutationObserver(()=>{if(n.hidden&&!v.paused)v.pause()}).observe(n,{attributes:true,attributeFilter:["hidden"]});
   try{filmLang(document.documentElement.lang)}catch(e){}
 })();
 </script>
