@@ -498,7 +498,7 @@ html[lang="ar"] .film-text h3{font-family:var(--f-ar);font-weight:700}
             <dt data-i="mSize">Размер</dt><dd data-i="nSizeV">2 холста, 30 × 30 см каждый</dd>
             <dt data-i="mYear">Год</dt><dd>2026</dd>
           </dl>
-          <a class="btn" href="#niti" data-i="readTale">Читать сказку</a><a class="btn ghost" href="#film" data-i="watchFilm">Смотреть мультфильм</a>
+          <a class="btn" href="#niti" data-i="readTale">Читать сказку</a><a class="btn ghost" href="film/" data-i="watchFilm">Смотреть мультфильм</a>
         </div>
       </div>
       <div class="divider" aria-hidden="true"><svg viewBox="0 0 120 40"><g fill="none" stroke="#D6B266" stroke-width="1"><path d="M60 6 L66 14 L76 14 L70 20 L76 26 L66 26 L60 34 L54 26 L44 26 L50 20 L44 14 L54 14 Z"/><path d="M60 11 L63.5 17 L69 20 L63.5 23 L60 29 L56.5 23 L51 20 L56.5 17 Z" fill="#D6B266" fill-opacity=".85" stroke="none"/><circle cx="34" cy="20" r="2.2" fill="#D6B266" stroke="none"/><circle cx="86" cy="20" r="2.2" fill="#D6B266" stroke="none"/></g></svg></div>
@@ -760,33 +760,13 @@ html[lang="ar"] .film-text h3{font-family:var(--f-ar);font-weight:700}
         <div class="tale-body" id="tale"></div>
         <p class="formula"><span class="ar" lang="ar">وأدرك شهرزاد الصباح فسكتت عن الكلام المباح</span><span data-i="formula">Но тут Шехерезаду застигло утро, и она прекратила дозволенные речи.</span></p>
         <p class="next" data-i="next">Продолжение этой сказки пишется зимой 2026–2027 года: половинки диптиха отправляются в путь по городу. Встретятся ли они — узнаем к 14 февраля.</p>
-        <p class="film-link"><a class="btn ghost" href="#film" data-i="watchFilm">Смотреть мультфильм</a></p>
+        <p class="film-link"><a class="btn ghost" href="film/" data-i="watchFilm">Смотреть мультфильм</a></p>
       </div>
     </div>
     <div class="wrap back-wrap"><a class="back" href="#works" data-i="back">← Назад к сокровищам</a></div>
   </section>
 
-  <section id="film" class="tale film-page" hidden>
-    <div class="wrap">
-      <a class="back" href="#works" data-i="back">← Назад к сокровищам</a>
-      <div class="film-head"><p class="eyebrow" data-i="filmEyebrow">Мультфильм по сказке</p><h2 data-i="filmTitle">Нити любви</h2></div>
-      <div class="film" id="niti-film">
-        <div class="film-arch">
-          <div class="film-win">
-            <video id="filmVideo" playsinline preload="none" poster="../img/film-ru.jpg" src="../video/niti-lyubvi-ru.mp4" data-label="filmLabel" aria-label="Мультфильм «Нити любви»"></video>
-            <button type="button" class="film-play" id="filmPlay"><span class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5v17l14-8.5z"/></svg></span><span data-i="filmPlay">Смотреть</span></button>
-          </div>
-        </div>
-        <div class="film-text">
-          <p data-i="filmText">Сказка о двух ангелах, которые стали буквами одного слова, — в живописных кадрах, со светом, золотыми нитями и музыкой.</p>
-          <div class="film-meta"><span data-i="filmLen">2 мин 14 с</span><span data-i="filmSubs">Субтитры на языке сайта</span></div>
-          <p class="film-credit" data-i="filmCredit">Музыка: Paul Yudin, «Love Valentine Romantic» (Pixabay)</p>
-          <a class="btn" href="#niti" data-i="readTale">Читать сказку</a>
-        </div>
-      </div>
-    </div>
-    <div class="wrap back-wrap"><a class="back" href="#works" data-i="back">← Назад к сокровищам</a></div>
-  </section>
+  
 
 
   <section id="fusul" class="tale" hidden>
@@ -1129,7 +1109,7 @@ setLang(start);
 })();
 
 (function(){
-  const tales=["niti","film","fusul","arthur","semya","sharq"];
+  const tales=["niti","fusul","arthur","semya","sharq"];
   const mainParts=[...document.querySelectorAll("main > .scene, main > section:not(.tale)")];
   function show(id,scrollTarget){
     tales.forEach(x=>{const el=document.getElementById(x); if(el) el.hidden=(x!==id);});
