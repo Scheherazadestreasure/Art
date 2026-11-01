@@ -1304,15 +1304,16 @@ setLang(start);
     const em=(f.get("contact")||"").toString().trim();
     if(f.get("how")==="cm1" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) payload.email=em;
     const oldLabel=sendBtn.textContent; sendBtn.disabled=true; sendBtn.textContent=cur().fSending; res.hidden=true; status.hidden=true;
-    let ok=false;
+    let ok=false, why="";
     try{
       const r=await fetch("https://formsubmit.co/ajax/"+MAIL,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload)});
-      const j=await r.json().catch(()=>({}));
-      ok=r.ok && (j.success===true||j.success==="true");
-    }catch(_){ ok=false; }
+      const j=await r.json().catch(()=>null);
+      ok=r.ok && j && (j.success===true||j.success==="true");
+      if(!ok) why="HTTP "+r.status+(j&&j.message?": "+String(j.message).slice(0,160):(j?"":", ответ не JSON"));
+    }catch(err){ ok=false; why="нет связи с formsubmit.co ("+(err&&err.message||"ошибка сети")+")"; }
     sendBtn.disabled=false; sendBtn.textContent=cur().fSend;
     if(ok){ form.reset(); form.what.value="o1"; showStatus(cur().fSent,false); return; }
-    showStatus(cur().fFailMsg,true); res.hidden=false;
+    showStatus(cur().fFailMsg+" ["+why+"]",true); res.hidden=false;
     window.location.href="mailto:"+MAIL+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
   });
   document.getElementById("fCopy").addEventListener("click",async()=>{
